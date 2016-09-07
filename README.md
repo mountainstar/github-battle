@@ -1,4 +1,3 @@
 # github-battle
-reactJs project
-# run npm install 
-# then npm start
+
+React JS Course for battling github users
