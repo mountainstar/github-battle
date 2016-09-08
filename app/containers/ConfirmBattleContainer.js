@@ -3,13 +3,13 @@ var ConfirmBattle = require('../components/ConfirmBattle');
 var githubHelpers = require('../utils/githubHelpers');
 
 var ConfirmBattleContainer = React.createClass({
-   contextTypes: {
-       router: React.PropTypes.object.isRequired
-   },
-    getInitialState: function() {
+    contextTypes: {
+        router: React.PropTypes.object.isRequired
+    },
+    getInitialState: function () {
         return {
             isLoading: true,
-            playersInfo: []
+            playersInfo: [],
         }
     },
     componentDidMount: function () {
@@ -22,26 +22,22 @@ var ConfirmBattleContainer = React.createClass({
                 })
             }.bind(this))
     },
-    handleInitiageBattle: function(){
+    handleInitiateBattle: function () {
         this.context.router.push({
-            pathname:'/results',
+            pathname: '/results',
             state: {
-                playerInfo: this.state.playersInfo
+                playersInfo: this.state.playersInfo
             }
         })
     },
-    render: function(){
+    render: function () {
         return (
-        <ConfirmBattle
-            isLoading={this.state.isLoading}
-            onInitiateBattle={this.handleInitiageBattle}
-            playersInfo={this.state.playersInfo}
-            />
-        );
+            <ConfirmBattle
+                isLoading={this.state.isLoading}
+                onInitiateBattle={this.handleInitiateBattle}
+                playersInfo={this.state.playersInfo} />
+        )
     }
-
 });
 
 module.exports = ConfirmBattleContainer;
-
-// https://egghead.io/playlists/the-this-key-word-250c37d9
